@@ -1,4 +1,4 @@
 TutorialmodVG
 =============
 
-Surce code to TutorialVG mod, check it out!!!!!
+Source code to the TutorialVG mod, check it out!!!!!
