@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project name="Tutorial Mod" basedir="../" default="releases">
+    
+	<target name="releases">
+        
+		<delete dir="releases" />
+		<delete dir="forge/mcp/reobf/minecraft" />
+        
+        <copy todir="forge/mcp/src/minecraft">
+        
+        <fileset dir="TutorialmodVG/Common/">
+            
+        </fileset>
+        
+        </copy>
+        
+		<mkdir dir="releases" />
+        
+		<exec executable="recompile.bat" dir="forge/mcp" resolveexecutable="true" osfamily="windows"></exec>
+        
+		<exec executable="reobfuscate.bat" dir="forge/mcp" resolveexecutable="true" osfamily="windows"></exec>
+        
+		<exec executable="recompile.sh" dir="forge/mcp" resolveexecutable="true" osfamily="unix"></exec>
+        
+		<exec executable="reobfuscate.sh" dir="forge/mcp" resolveexecutable="true" osfamily="unix"></exec>
+    
+        
+		<jar destfile="releases/TutorialMod.jar">
+            
+			<fileset dir="forge/mcp/reobf/minecraft" />
+            <fileset dir="TutorialmodVG/Resources"/>
+            
+		</jar>
+		<delete dir="forge/mcp/src/minecraft/kakarotvg" />
+        
+	</target>
+    
+</project>

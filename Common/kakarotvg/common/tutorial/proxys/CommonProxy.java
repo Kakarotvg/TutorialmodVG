@@ -1,4 +1,4 @@
-package kakarotvg.common.tutorial;
+package kakarotvg.common.tutorial.proxys;
 
 public class CommonProxy {
 
@@ -10,8 +10,13 @@ public class CommonProxy {
 
     }
 
+    public void registerRenderThings() {
+
+    }
+
     public void init() {
         registerRenderInformation();
+        registerRenderThings();
     }
 
     public int addArmor(String armor) {
