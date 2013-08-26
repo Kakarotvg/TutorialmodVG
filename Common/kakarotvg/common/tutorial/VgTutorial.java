@@ -60,9 +60,6 @@ public class VgTutorial {
         ArmorHandler.registerArmor(new GameRegistry());
         ArmorHandler.addNames(new LanguageRegistry());
 
-        RecipeHandler.registerCrafting(new GameRegistry());
-        RecipeHandler.registerSmelting(new GameRegistry());
-
         LiquidHandler.configurefluids(config);
         LiquidHandler.registerfluids(new GameRegistry());
         LiquidHandler.addNAmes(new LanguageRegistry());
@@ -78,6 +75,11 @@ public class VgTutorial {
         CreativeTabHandler.setNames(new LanguageRegistry());
 
         ClassRegistry.classRegistry(new GameRegistry());
+
+        // Recipes need to be on bottom. Otherwise you may get a
+        // nullpointerexception!
+        RecipeHandler.registerCrafting(new GameRegistry());
+        RecipeHandler.registerSmelting(new GameRegistry());
 
         proxy.init();
     }
