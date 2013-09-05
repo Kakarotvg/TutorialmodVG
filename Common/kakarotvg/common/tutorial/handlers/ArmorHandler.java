@@ -16,8 +16,10 @@ public class ArmorHandler {
     public static Item tutoriallegs;
     public static Item tutorialboots;
 
+    // the armor enum
     public static EnumArmorMaterial TUTORIALARMOR = EnumHelper.addArmorMaterial("TUTORIALARMOR", 680, new int[] { 9, 14, 12, 9 }, 10);
 
+    // registers the armors, with the textures and ids.
     public static void configureArmors(Configuration config) {
         tutorialhelm = new TutorialArmor(IDHandler.tutorialhelmID, TUTORIALARMOR, VgTutorial.proxy.addArmor("TUTORIALARMOR"), 0, "TUTORIALARMOR_1").setUnlocalizedName("tutorialhelm").setCreativeTab(CreativeTabHandler.ttab);
         tutorialplate = new TutorialArmor(IDHandler.tutorialplateID, TUTORIALARMOR, VgTutorial.proxy.addArmor("TUTORIALARMOR"), 1, "TUTORIALARMOR_1").setUnlocalizedName("tutorialplate").setCreativeTab(CreativeTabHandler.ttab);
@@ -25,6 +27,7 @@ public class ArmorHandler {
         tutorialboots = new TutorialArmor(IDHandler.tutorialbootsID, TUTORIALARMOR, VgTutorial.proxy.addArmor("TUTORIALARMOR"), 3, "TUTORIALARMOR_1").setUnlocalizedName("tutorialboots").setCreativeTab(CreativeTabHandler.ttab);
     }
 
+    // registers the armor as an item
     public static void registerArmor(GameRegistry registry) {
         registry.registerItem(tutorialhelm, "tutorialhelm");
         registry.registerItem(tutorialplate, "tutorialplate");
@@ -32,6 +35,7 @@ public class ArmorHandler {
         registry.registerItem(tutorialboots, "tutorialboots");
     }
 
+    // registers the armor names
     public static void addNames(LanguageRegistry registry) {
         registry.addName(tutorialhelm, "Tutorial Helmet");
         registry.addName(tutorialplate, "Tutorial Chestplate");

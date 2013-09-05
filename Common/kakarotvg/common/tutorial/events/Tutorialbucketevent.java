@@ -11,6 +11,7 @@ import net.minecraftforge.event.entity.player.FillBucketEvent;
 
 public class Tutorialbucketevent {
 
+    // Gets the result of the bucket being used on your custom liquid
     @ForgeSubscribe
     public void onBucketFill(FillBucketEvent event) {
 
@@ -23,6 +24,8 @@ public class Tutorialbucketevent {
 
     }
 
+    // determines what the bucket will pick up and return when being used on the
+    // custom liquid
     public ItemStack fillBucket(World world, MovingObjectPosition pos) {
         int blockID = world.getBlockId(pos.blockX, pos.blockY, pos.blockZ);
 

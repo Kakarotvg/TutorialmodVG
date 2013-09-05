@@ -13,6 +13,7 @@ public class TutorialSword extends ItemSword {
         super(id, toolmaterial);
     }
 
+    // gets the icon
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IconRegister register) {

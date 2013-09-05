@@ -11,6 +11,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class TutorialCrop extends BlockCrops {
+    // gets the icon array
     @SideOnly(Side.CLIENT)
     private Icon[] iconArray;
 
@@ -18,6 +19,7 @@ public class TutorialCrop extends BlockCrops {
         super(id);
     }
 
+    // determines how many textures there are for said crop
     @SideOnly(Side.CLIENT)
     public Icon getIcon(int par1, int par2) {
         if (par2 < 7) {
@@ -30,14 +32,20 @@ public class TutorialCrop extends BlockCrops {
         }
     }
 
+    // drops the seeds as the seed item
     protected int getSeedItem() {
         return CropHandler.tutorialseeds.itemID;
     }
 
+    // drops the food as the crop item
     protected int getCropItem() {
         return CropHandler.tutorialfood.itemID;
     }
 
+    /*
+     * registers the Icon as the unlocalized name, with there being 8 textures
+     * for said block rangin from 0-7
+     */
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister register) {
         this.iconArray = new Icon[8];

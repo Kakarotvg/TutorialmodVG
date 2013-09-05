@@ -37,47 +37,69 @@ public class VgTutorial {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        /*
+         * Runs the Configuration file and saves the IDs to the file (file will
+         * be named Tutorial_Mod.cfg)
+         */
         Configuration config = new Configuration(event.getSuggestedConfigurationFile());
         config.load();
         IDHandler.createConfigfile(config);
         config.save();
 
+        // Calls the blockhandler class, making our block show up in game
         BlockHandler.configureBlocks(config);
         BlockHandler.registerBlocks(new GameRegistry());
         BlockHandler.addNames(new LanguageRegistry());
         BlockHandler.setBlockHarvestLevel(new MinecraftForge());
 
+        // calls the ItemHandler class making our Item show up in game
         ItemHandler.configureItems(config);
         ItemHandler.registerItems(new GameRegistry());
         ItemHandler.addNames(new LanguageRegistry());
 
+        // calls the toolhandler class allowing our tools to show up in game
         ToolHandler.configureTools(config);
         ToolHandler.registerTools(new GameRegistry());
         ToolHandler.addNames(new LanguageRegistry());
         ToolHandler.setToolClass(new MinecraftForge());
 
+        // calls the armorhandler class allowing our armors to show up in game
         ArmorHandler.configureArmors(config);
         ArmorHandler.registerArmor(new GameRegistry());
         ArmorHandler.addNames(new LanguageRegistry());
 
+        // calls the liquidhandler class allowing our fluids to show up in game
         LiquidHandler.configurefluids(config);
         LiquidHandler.registerfluids(new GameRegistry());
         LiquidHandler.addNAmes(new LanguageRegistry());
         LiquidHandler.fluidContainerRegistry();
 
+        // calls the crophandler class allowing our crops to show up in game
         CropHandler.configureCrops(config);
         CropHandler.registerCrops(new GameRegistry());
         CropHandler.addNames(new LanguageRegistry());
         CropHandler.addGrassSeedDrop(new MinecraftForge());
 
+        // calls the eventhandler, allowing an empty bucket to pick up our fluid
         TutorialEventHandler.registerEvents();
 
+        /*
+         * calls the creative tab handler allowing our creative tab to have its
+         * own custom name
+         */
         CreativeTabHandler.setNames(new LanguageRegistry());
 
+        /*
+         * calls the classregistry class allowing what ever classes we need to
+         * register, to show up in the game...
+         */
         ClassRegistry.classRegistry(new GameRegistry());
 
-        // Recipes need to be on bottom. Otherwise you may get a
-        // nullpointerexception!
+        /*
+         * Recipes need to be on bottom. Otherwise you may get a
+         * nullpointerexception! calls the recipehandler allowing for our
+         * crafting recipes
+         */
         RecipeHandler.registerCrafting(new GameRegistry());
         RecipeHandler.registerSmelting(new GameRegistry());
 

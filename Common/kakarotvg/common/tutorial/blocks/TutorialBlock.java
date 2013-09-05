@@ -13,6 +13,7 @@ public class TutorialBlock extends Block {
         super(id, material);
     }
 
+    // registers the icon/texture of the block, as the unlocalized name
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IconRegister register) {

@@ -1,4 +1,4 @@
-package kakarotvg.common.tutorial.blocks;
+package kakarotvg.common.tutorial.generation;
 
 import java.util.Random;
 
@@ -11,6 +11,7 @@ import cpw.mods.fml.common.IWorldGenerator;
 
 public class TutorialGenerator implements IWorldGenerator {
 
+    // switches between end, surface, and nether
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
         switch (world.provider.dimensionId) {
@@ -23,10 +24,12 @@ public class TutorialGenerator implements IWorldGenerator {
         }
     }
 
+    // generates blocks in the end
     private void generateEnd(World world, Random random, int chunkX, int chunkZ) {
 
     }
 
+    // generates a block in the surface
     private void generateSurface(World world, Random random, int chunkX, int chunkZ) {
         for (int i = 0; i < 20; i++) {
             int coordX = random.nextInt(16) + chunkX;
@@ -37,6 +40,7 @@ public class TutorialGenerator implements IWorldGenerator {
         }
     }
 
+    // generates the block in the nether
     private void generateNether(World world, Random random, int chunkX, int chunkZ) {
         for (int i = 0; i < 50; i++) {
             int coordX = random.nextInt(16) + chunkX;

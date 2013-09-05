@@ -8,10 +8,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class TutorialBucket extends ItemBucket {
 
-    public TutorialBucket(int id, int par1) {
-        super(id, par1);
+    public TutorialBucket(int id, int liquidid) {
+        super(id, liquidid);
     }
 
+    // gets the icon
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IconRegister register) {

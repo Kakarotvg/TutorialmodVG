@@ -12,6 +12,7 @@ public class TutorialItem extends Item {
         super(id);
     }
 
+    // gets the Icon as the unlocalized name
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IconRegister iconreg) {

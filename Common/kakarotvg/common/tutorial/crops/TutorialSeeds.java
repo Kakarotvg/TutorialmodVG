@@ -19,13 +19,15 @@ public class TutorialSeeds extends ItemFood implements IPlantable {
 
     private int soilId;
 
-    public TutorialSeeds(int par1, int par2, float par3, int par4, int par5) {
-        super(par1, par2, par3, false);
+    // super constructor
+    public TutorialSeeds(int id, int foodregen, float saturation, int cropid, int soilid) {
+        super(id, foodregen, saturation, false);
 
-        this.cropId = par4;
-        this.soilId = par5;
+        this.cropId = cropid;
+        this.soilId = soilid;
     }
 
+    // when the player right clicks with the Item
     public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3world, int par4, int par5, int par6, int par7, float par8, float par9, float par10) {
         if (par7 != 1) {
             return false;
@@ -45,21 +47,25 @@ public class TutorialSeeds extends ItemFood implements IPlantable {
         }
     }
 
+    // gets the enumplant type
     @Override
     public EnumPlantType getPlantType(World world, int x, int y, int z) {
         return EnumPlantType.Crop;
     }
 
+    // gets the plant id
     @Override
     public int getPlantID(World world, int x, int y, int z) {
         return cropId;
     }
 
+    // gets the metadata
     @Override
     public int getPlantMetadata(World world, int x, int y, int z) {
         return 0;
     }
 
+    // registers the icon as the unlocalized name
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IconRegister register) {

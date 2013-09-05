@@ -43,6 +43,8 @@ public class IDHandler {
     public static int tutorialseedsID;
     public static int tutorialfoodID;
 
+    // the ids that will appear in the config file and are used by everything
+    // that uses ids
     public static void createConfigfile(Configuration config) {
         // block ids
         tutorialblockID = config.get(blockids, "Tutorial Block", 3300).getInt();

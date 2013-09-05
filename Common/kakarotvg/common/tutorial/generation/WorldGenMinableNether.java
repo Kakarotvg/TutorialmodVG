@@ -1,4 +1,4 @@
-package kakarotvg.common.tutorial.blocks;
+package kakarotvg.common.tutorial.generation;
 
 import java.util.Random;
 
@@ -22,6 +22,7 @@ public class WorldGenMinableNether extends WorldGenerator {
         numberOfBlocks = par3;
     }
 
+    // generates the block in a specific block
     public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5) {
         float f = par2Random.nextFloat() * (float) Math.PI;
         double d = (float) (par3 + 8) + (MathHelper.sin(f) * (float) numberOfBlocks) / 8F;
@@ -62,6 +63,8 @@ public class WorldGenMinableNether extends WorldGenerator {
                     for (int j2 = l; j2 <= k1; j2++) {
                         double d14 = (((double) j2 + 0.5D) - d8) / (d10 / 2D);
 
+                        // gets the block to generate your custom block in
+                        // (in this case it is netherrack)
                         if (d12 * d12 + d13 * d13 + d14 * d14 < 1.0D && par1World.getBlockId(l1, i2, j2) == Block.netherrack.blockID) {
                             par1World.setBlock(l1, i2, j2, minableBlockId);
                         }

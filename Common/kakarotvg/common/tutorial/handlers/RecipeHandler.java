@@ -6,6 +6,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RecipeHandler {
 
+    // creates the recipes for your custom stuff
     public static void registerCrafting(GameRegistry registry) {
         registry.addRecipe(new ItemStack(BlockHandler.tutorialblock, 1), "ttt", "ttt", "ttt", 't', ItemHandler.tutorialitem);
         registry.addRecipe(new ItemStack(ToolHandler.tutorialaxe, 1), "tt ", "ts ", " s ", 't', ItemHandler.tutorialingot, 's', Item.stick);
@@ -22,6 +23,7 @@ public class RecipeHandler {
         registry.addShapelessRecipe(new ItemStack(ItemHandler.tutorialitem, 5), new Object[] { BlockHandler.tutorialblock2 });
     }
 
+    // creates the smelting recipes for the ingot
     public static void registerSmelting(GameRegistry registry) {
         registry.addSmelting(BlockHandler.tutorialblock.blockID, new ItemStack(ItemHandler.tutorialingot), 8.0F);
         registry.addSmelting(BlockHandler.animatedblock.blockID, new ItemStack(ItemHandler.tutorialingot), 12.0F);

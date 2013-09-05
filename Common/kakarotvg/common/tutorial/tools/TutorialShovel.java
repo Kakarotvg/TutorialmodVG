@@ -13,6 +13,7 @@ public class TutorialShovel extends ItemSpade {
         super(id, toolmaterial);
     }
 
+    // gets the icon
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IconRegister register) {

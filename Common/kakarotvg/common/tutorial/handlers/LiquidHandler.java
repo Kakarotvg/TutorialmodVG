@@ -23,20 +23,29 @@ public class LiquidHandler {
     // buckets
     public static Item tutorialbucket;
 
+    // registers the fluid/bucket ids, and textures.
     public static void configurefluids(Configuration config) {
         TutorialFluid = new TutorialFluid("Tutorial");
         TutorialLiquid = new BlockTutorialFluid(IDHandler.blocktutorialfluidID).setUnlocalizedName("tutorialfluid");
+        // registers the bucket id, texture, and the block it places when you
+        // right click on the ground.
         tutorialbucket = new TutorialBucket(IDHandler.tutorialbucketID, LiquidHandler.TutorialLiquid.blockID).setUnlocalizedName("tutorialbucket").setCreativeTab(CreativeTabHandler.ttab);
     }
 
+    // registers the bucket as an item
+    // registers tutorial liquid as a block
     public static void registerfluids(GameRegistry registry) {
+        registry.registerBlock(TutorialLiquid, "tutorialliquid");
         registry.registerItem(tutorialbucket, "tutorialbucket");
     }
 
+    // registers the names
     public static void addNAmes(LanguageRegistry registry) {
+        registry.addName(TutorialLiquid, "Tutorial Liquid");
         registry.addName(tutorialbucket, "Tutorial Bucket");
     }
 
+    // registers the fluidcontainer
     public static void fluidContainerRegistry() {
         FluidContainerRegistry.registerFluidContainer(LiquidHandler.TutorialFluid, new ItemStack(LiquidHandler.tutorialbucket, 1, 1), new ItemStack(Item.bucketEmpty));
     }

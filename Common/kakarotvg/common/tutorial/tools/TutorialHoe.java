@@ -13,6 +13,7 @@ public class TutorialHoe extends ItemHoe {
         super(id, toolmaterial);
     }
 
+    // gets the icon
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IconRegister register) {
