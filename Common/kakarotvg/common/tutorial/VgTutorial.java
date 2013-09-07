@@ -45,7 +45,7 @@ public class VgTutorial {
         config.load();
         IDHandler.createConfigfile(config);
         config.save();
-
+        // everything below must be under the cofig.save otherwise minecraft wont work
         // Calls the blockhandler class, making our block show up in game
         BlockHandler.configureBlocks(config);
         BlockHandler.registerBlocks(new GameRegistry());
