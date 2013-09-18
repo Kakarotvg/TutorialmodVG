@@ -11,10 +11,10 @@ public class IDHandler {
     public static String armorids = "Armor IDs";
     public static String liquidids = "Liquid IDs";
     public static String cropids = "Crop IDs";
+    public static String tileentityids = "TileEntity IDs";
 
     // block ids
     public static int tutorialblockID;
-    public static int tutorialblock2ID;
     public static int animatedblockID;
 
     // item ids
@@ -43,12 +43,15 @@ public class IDHandler {
     public static int tutorialseedsID;
     public static int tutorialfoodID;
 
+    // tileentityids
+    public static int tiletutorialblockID;
+    public static int tutorialchestID;
+
     // the ids that will appear in the config file and are used by everything
     // that uses ids
     public static void createConfigfile(Configuration config) {
         // block ids
         tutorialblockID = config.get(blockids, "Tutorial Block", 3300).getInt();
-        tutorialblock2ID = config.get(blockids, "Tutorial Block 2", 3301).getInt();
         animatedblockID = config.get(blockids, "Animated Block", 3302).getInt();
         // item ids
         tutorialitemID = config.get(itemids, "Tutorial Item", 24000).getInt();
@@ -71,6 +74,9 @@ public class IDHandler {
         tutorialcropID = config.get(cropids, "Tutorial Crop", 3360).getInt();
         tutorialseedsID = config.get(cropids, "Tutorial Seeds", 24300).getInt();
         tutorialfoodID = config.get(cropids, "Tutorial Food", 24301).getInt();
+        // tileentity ids
+        tiletutorialblockID = config.get(tileentityids, "Tile Entity Tutorial Block", 3304).getInt();
+        tutorialchestID = config.get(tileentityids, "Tutorial Chest", 3305).getInt();
 
     }
 

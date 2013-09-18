@@ -1,5 +1,6 @@
 package kakarotvg.common.tutorial;
 
+import kakarotvg.common.tutorial.gui.TutorialGuiHandler;
 import kakarotvg.common.tutorial.handlers.ArmorHandler;
 import kakarotvg.common.tutorial.handlers.BlockHandler;
 import kakarotvg.common.tutorial.handlers.CreativeTabHandler;
@@ -8,12 +9,12 @@ import kakarotvg.common.tutorial.handlers.IDHandler;
 import kakarotvg.common.tutorial.handlers.ItemHandler;
 import kakarotvg.common.tutorial.handlers.LiquidHandler;
 import kakarotvg.common.tutorial.handlers.RecipeHandler;
+import kakarotvg.common.tutorial.handlers.TileEntityHandler;
 import kakarotvg.common.tutorial.handlers.ToolHandler;
 import kakarotvg.common.tutorial.handlers.TutorialEventHandler;
 import kakarotvg.common.tutorial.proxys.CommonProxy;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fluids.FluidContainerRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -22,15 +23,17 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = TutorialModInfo.ID, name = TutorialModInfo.MOD_N, version = TutorialModInfo.MOD_V)
-@NetworkMod(serverSideRequired = false, clientSideRequired = true)
+@NetworkMod(serverSideRequired = false, clientSideRequired = true, channels = TutorialModInfo.MOD_C, packetHandler = TutorialPacketHandler.class)
 public class VgTutorial {
 
     @Instance(TutorialModInfo.ID)
     public static VgTutorial instance;
+    private TutorialGuiHandler guihandler = new TutorialGuiHandler();
 
     @SidedProxy(clientSide = "kakarotvg.common.tutorial.proxys.ClientProxy", serverSide = "kakarotvg.common.tutorial.proxys.CommonProxy")
     public static CommonProxy proxy;
@@ -45,7 +48,8 @@ public class VgTutorial {
         config.load();
         IDHandler.createConfigfile(config);
         config.save();
-        // everything below must be under the cofig.save otherwise minecraft wont work
+        // everything below must be under the cofig.save otherwise minecraft
+        // wont work
         // Calls the blockhandler class, making our block show up in game
         BlockHandler.configureBlocks(config);
         BlockHandler.registerBlocks(new GameRegistry());
@@ -80,6 +84,12 @@ public class VgTutorial {
         CropHandler.addNames(new LanguageRegistry());
         CropHandler.addGrassSeedDrop(new MinecraftForge());
 
+        // calls the tileentityhandler class
+        TileEntityHandler.ConfigureTiles(config);
+        TileEntityHandler.registerTileEntitys(new GameRegistry());
+        TileEntityHandler.addNames(new LanguageRegistry());
+        TileEntityHandler.tileentityRegistry(new GameRegistry());
+
         // calls the eventhandler, allowing an empty bucket to pick up our fluid
         TutorialEventHandler.registerEvents();
 
@@ -94,6 +104,7 @@ public class VgTutorial {
          * register, to show up in the game...
          */
         ClassRegistry.classRegistry(new GameRegistry());
+        NetworkRegistry.instance().registerGuiHandler(this, guihandler);
 
         /*
          * Recipes need to be on bottom. Otherwise you may get a

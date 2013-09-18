@@ -19,8 +19,8 @@ public class RecipeHandler {
         registry.addRecipe(new ItemStack(ArmorHandler.tutoriallegs, 1), "ttt", "t t", "t t", 't', ItemHandler.tutorialingot);
         registry.addRecipe(new ItemStack(ArmorHandler.tutorialboots, 1), "   ", "t t", "t t", 't', ItemHandler.tutorialingot);
         registry.addShapelessRecipe(new ItemStack(ItemHandler.tutorialitem, 5), new Object[] { BlockHandler.tutorialblock });
-        registry.addRecipe(new ItemStack(BlockHandler.tutorialblock2, 1), "ttt", "tgt", "ttt", 't', ItemHandler.tutorialitem, 'g', Item.ingotGold);
-        registry.addShapelessRecipe(new ItemStack(ItemHandler.tutorialitem, 5), new Object[] { BlockHandler.tutorialblock2 });
+        registry.addRecipe(new ItemStack(BlockHandler.tutorialblock, 1, 1), "ttt", "tgt", "ttt", 't', ItemHandler.tutorialitem, 'g', Item.ingotGold);
+        registry.addShapelessRecipe(new ItemStack(ItemHandler.tutorialitem, 5), new Object[] { new ItemStack(BlockHandler.tutorialblock, 1, 1) });
     }
 
     // creates the smelting recipes for the ingot

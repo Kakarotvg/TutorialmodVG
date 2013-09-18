@@ -3,6 +3,7 @@ package kakarotvg.common.tutorial.generation;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -16,8 +17,9 @@ public class WorldGenMinableNether extends WorldGenerator {
     /** The number of blocks to generate. */
     private int numberOfBlocks;
 
-    public WorldGenMinableNether(int par1, int par2, int par3) {
-        minableBlockId = par1;
+    public WorldGenMinableNether(ItemStack par1, int par2, int par3) {
+        // needs to get the value of the itemstacks id ergo(Integer.valueOf(par1.itemID))
+        minableBlockId = (Integer.valueOf(par1.itemID));
         metadata = par2;
         numberOfBlocks = par3;
     }

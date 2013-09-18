@@ -3,7 +3,7 @@ package kakarotvg.common.tutorial.generation;
 import java.util.Random;
 
 import kakarotvg.common.tutorial.handlers.BlockHandler;
-
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -36,7 +36,7 @@ public class TutorialGenerator implements IWorldGenerator {
             int coordY = random.nextInt(16);
             int coordZ = random.nextInt(16) + chunkZ;
 
-            (new WorldGenMinable(BlockHandler.tutorialblock2.blockID, 12)).generate(world, random, coordX, coordY, coordZ);
+            (new WorldGenMinable(BlockHandler.tutorialblock.blockID, 12)).generate(world, random, coordX, coordY, coordZ);
         }
     }
 
@@ -47,7 +47,7 @@ public class TutorialGenerator implements IWorldGenerator {
             int coordY = random.nextInt(89);
             int coordZ = random.nextInt(16) + chunkZ;
 
-            (new WorldGenMinableNether(BlockHandler.tutorialblock2.blockID, 1, 12)).generate(world, random, coordX, coordY, coordZ);
+            (new WorldGenMinableNether(new ItemStack(BlockHandler.tutorialblock, 1, 1), 1, 12)).generate(world, random, coordX, coordY, coordZ);
         }
     }
 
