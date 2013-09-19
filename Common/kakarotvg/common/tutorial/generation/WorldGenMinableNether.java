@@ -17,9 +17,10 @@ public class WorldGenMinableNether extends WorldGenerator {
     /** The number of blocks to generate. */
     private int numberOfBlocks;
 
-    public WorldGenMinableNether(ItemStack par1, int par2, int par3) {
-        // needs to get the value of the itemstacks id ergo(Integer.valueOf(par1.itemID))
-        minableBlockId = (Integer.valueOf(par1.itemID));
+    public WorldGenMinableNether(int par1, int par2, int par3) {
+        // needs to get the value of the itemstacks id
+        // ergo(Integer.valueOf(par1.itemID))
+        minableBlockId = (Integer.valueOf(par1));
         metadata = par2;
         numberOfBlocks = par3;
     }
@@ -68,7 +69,7 @@ public class WorldGenMinableNether extends WorldGenerator {
                         // gets the block to generate your custom block in
                         // (in this case it is netherrack)
                         if (d12 * d12 + d13 * d13 + d14 * d14 < 1.0D && par1World.getBlockId(l1, i2, j2) == Block.netherrack.blockID) {
-                            par1World.setBlock(l1, i2, j2, minableBlockId);
+                            par1World.setBlock(l1, i2, j2, minableBlockId, metadata, 2);
                         }
                     }
                 }
