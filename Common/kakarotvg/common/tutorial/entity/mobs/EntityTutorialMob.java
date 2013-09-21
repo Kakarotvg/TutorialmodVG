@@ -1,7 +1,8 @@
 package kakarotvg.common.tutorial.entity.mobs;
 
-import kakarotvg.common.tutorial.Reference;
-import kakarotvg.common.tutorial.handlers.ItemHandler;
+import kakarotvg.common.tutorial.handlers.items.ItemHandler;
+import kakarotvg.common.tutorial.info.Reference;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
@@ -31,8 +32,10 @@ public class EntityTutorialMob extends EntityMob {
         this.targetTasks.addTask(9, new EntityAINearestAttackableTarget(this, EntityVillager.class, 0, false));
     }
 
-    public int getMaxHealth() {
-        return 40;
+    protected void applyEntityAttributes() {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(40.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(0.25D);
     }
 
     public int getAttackStrenth() {

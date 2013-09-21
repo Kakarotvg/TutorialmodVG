@@ -3,7 +3,7 @@ package kakarotvg.common.tutorial.proxys;
 import kakarotvg.common.tutorial.entity.mobs.EntityTutorialAnimal;
 import kakarotvg.common.tutorial.entity.mobs.EntityTutorialMob;
 import kakarotvg.common.tutorial.entity.tileentity.TileEntityTutorialBlockEntity;
-import kakarotvg.common.tutorial.handlers.TileEntityHandler;
+import kakarotvg.common.tutorial.handlers.tileentity.TileEntityHandler;
 import kakarotvg.common.tutorial.model.mobs.ModelTutorialAnimal;
 import kakarotvg.common.tutorial.model.mobs.ModelTutorialMob;
 import kakarotvg.common.tutorial.render.item.ItemTutorialBlockRenderer;

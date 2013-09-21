@@ -1,7 +1,7 @@
 package kakarotvg.common.tutorial.events;
 
-import kakarotvg.common.tutorial.handlers.IDHandler;
-import kakarotvg.common.tutorial.handlers.LiquidHandler;
+import kakarotvg.common.tutorial.handlers.Ids.ArmorIDs;
+import kakarotvg.common.tutorial.handlers.liquids.LiquidHandler;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
@@ -29,10 +29,11 @@ public class Tutorialbucketevent {
     public ItemStack fillBucket(World world, MovingObjectPosition pos) {
         int blockID = world.getBlockId(pos.blockX, pos.blockY, pos.blockZ);
 
-        if ((blockID == IDHandler.blocktutorialfluidID) && world.getBlockMetadata(pos.blockX, pos.blockY, pos.blockZ) == 0) {
+        if ((blockID == LiquidHandler.TutorialLiquid.blockID) && world.getBlockMetadata(pos.blockX, pos.blockY, pos.blockZ) == 0) {
             world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
             return new ItemStack(LiquidHandler.tutorialbucket);
-        } else
+        }
+        else
             return null;
     }
 }

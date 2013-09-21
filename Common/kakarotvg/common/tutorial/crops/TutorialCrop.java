@@ -2,8 +2,8 @@ package kakarotvg.common.tutorial.crops;
 
 import java.util.Random;
 
-import kakarotvg.common.tutorial.Reference;
-import kakarotvg.common.tutorial.handlers.CropHandler;
+import kakarotvg.common.tutorial.handlers.crops.CropHandler;
+import kakarotvg.common.tutorial.info.Reference;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;

@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import kakarotvg.common.tutorial.handlers.BlockHandler;
-import kakarotvg.common.tutorial.handlers.ItemHandler;
-import kakarotvg.common.tutorial.handlers.TileEntityHandler;
+import kakarotvg.common.tutorial.handlers.blocks.BlockHandler;
+import kakarotvg.common.tutorial.handlers.items.ItemHandler;
+import kakarotvg.common.tutorial.handlers.tileentity.TileEntityHandler;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

@@ -1,6 +1,6 @@
 package kakarotvg.common.tutorial.fluids;
 
-import kakarotvg.common.tutorial.handlers.LiquidHandler;
+import kakarotvg.common.tutorial.handlers.liquids.LiquidHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.Icon;

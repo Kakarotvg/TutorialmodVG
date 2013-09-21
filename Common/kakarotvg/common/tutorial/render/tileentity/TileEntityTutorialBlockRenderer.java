@@ -1,6 +1,6 @@
 package kakarotvg.common.tutorial.render.tileentity;
 
-import kakarotvg.common.tutorial.Reference;
+import kakarotvg.common.tutorial.info.Reference;
 import kakarotvg.common.tutorial.model.tileentity.ModelTutorialBlock;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -11,6 +11,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.client.FMLClientHandler;
 
 public class TileEntityTutorialBlockRenderer extends TileEntitySpecialRenderer {
 
@@ -51,16 +53,17 @@ public class TileEntityTutorialBlockRenderer extends TileEntitySpecialRenderer {
             // this line rotates renderer
             GL11.glRotatef(dir * (90), 0F, 1F, 0F);
             // gets the texture for model
-            Minecraft.getMinecraft().renderEngine.func_110577_a(resourceloc);
+            FMLClientHandler.instance().getClient().renderEngine.bindTexture(resourceloc);
             // renders the model
             this.model.render((Entity) null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
 
             GL11.glPopMatrix();
-        } else {
+        }
+        else {
             GL11.glPushMatrix();
 
             GL11.glRotatef(-90F, 0F, 1F, 0F);
-            Minecraft.getMinecraft().renderEngine.func_110577_a(resourceloc);
+            FMLClientHandler.instance().getClient().renderEngine.bindTexture(resourceloc);
             this.model.render((Entity) null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
 
             GL11.glPopMatrix();

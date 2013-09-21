@@ -2,10 +2,10 @@ package kakarotvg.common.tutorial.tileentity.tileentitytutorialblock;
 
 import java.util.Random;
 
-import kakarotvg.common.tutorial.Reference;
 import kakarotvg.common.tutorial.VgTutorial;
 import kakarotvg.common.tutorial.entity.tileentity.TileEntityTutorialBlockEntity;
-import kakarotvg.common.tutorial.handlers.TileEntityHandler;
+import kakarotvg.common.tutorial.handlers.tileentity.TileEntityHandler;
+import kakarotvg.common.tutorial.info.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;

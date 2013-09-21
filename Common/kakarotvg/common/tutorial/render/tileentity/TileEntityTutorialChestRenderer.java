@@ -2,8 +2,8 @@ package kakarotvg.common.tutorial.render.tileentity;
 
 import java.util.Calendar;
 
-import kakarotvg.common.tutorial.Reference;
 import kakarotvg.common.tutorial.blocks.TutorialChest;
+import kakarotvg.common.tutorial.info.Reference;
 import kakarotvg.common.tutorial.tileentity.TileEntityTutorialChest;
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelChest;
@@ -21,8 +21,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class TileEntityTutorialChestRenderer extends TileEntitySpecialRenderer {
-    private static final ResourceLocation field_110632_d = new ResourceLocation(Reference.modid + ":" + "textures/tileentity/tutorialchestdouble.png");
-    private static final ResourceLocation field_110631_g = new ResourceLocation(Reference.modid + ":" + "textures/tileentity/tutorialchest.png");
+    private static final ResourceLocation resourcelgchest = new ResourceLocation(Reference.modid + ":" + "textures/tileentity/tutorialchestdouble.png");
+    private static final ResourceLocation resourcechest = new ResourceLocation(Reference.modid + ":" + "textures/tileentity/tutorialchest.png");
 
     /** The normal small chest model. */
     private ModelChest chestModel = new ModelChest();
@@ -49,14 +49,16 @@ public class TileEntityTutorialChestRenderer extends TileEntitySpecialRenderer {
 
         if (!par1TileEntityChest.hasWorldObj()) {
             i = 0;
-        } else {
+        }
+        else {
             Block block = par1TileEntityChest.getBlockType();
             i = par1TileEntityChest.getBlockMetadata();
 
             if (block instanceof TutorialChest && i == 0) {
                 try {
                     ((TutorialChest) block).unifyAdjacentChests(par1TileEntityChest.getWorldObj(), par1TileEntityChest.xCoord, par1TileEntityChest.yCoord, par1TileEntityChest.zCoord);
-                } catch (ClassCastException e) {
+                }
+                catch (ClassCastException e) {
                     FMLLog.severe("Attempted to render a chest at %d,  %d, %d that was not a chest", par1TileEntityChest.xCoord, par1TileEntityChest.yCoord, par1TileEntityChest.zCoord);
                 }
                 i = par1TileEntityChest.getBlockMetadata();
@@ -72,15 +74,18 @@ public class TileEntityTutorialChestRenderer extends TileEntitySpecialRenderer {
                 modelchest = this.chestModel;
 
                 if (par1TileEntityChest.func_98041_l() == 1) {
-                } else {
-                    this.func_110628_a(field_110631_g);
                 }
-            } else {
+                else {
+                    this.bindTexture(resourcelgchest);
+                }
+            }
+            else {
                 modelchest = this.largeChestModel;
 
                 if (par1TileEntityChest.func_98041_l() == 1) {
-                } else {
-                    this.func_110628_a(field_110632_d);
+                }
+                else {
+                    this.bindTexture(resourcechest);
                 }
             }
 

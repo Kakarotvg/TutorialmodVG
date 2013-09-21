@@ -1,6 +1,6 @@
 package kakarotvg.common.tutorial.tools;
 
-import kakarotvg.common.tutorial.Reference;
+import kakarotvg.common.tutorial.info.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;

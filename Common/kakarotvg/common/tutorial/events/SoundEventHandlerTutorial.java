@@ -1,6 +1,6 @@
 package kakarotvg.common.tutorial.events;
 
-import kakarotvg.common.tutorial.Reference;
+import kakarotvg.common.tutorial.info.Reference;
 import net.minecraftforge.client.event.sound.SoundLoadEvent;
 import net.minecraftforge.event.ForgeSubscribe;
 import cpw.mods.fml.relauncher.Side;

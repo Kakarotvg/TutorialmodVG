@@ -2,7 +2,7 @@ package kakarotvg.common.tutorial.armor;
 
 import java.util.List;
 
-import kakarotvg.common.tutorial.Reference;
+import kakarotvg.common.tutorial.info.Reference;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;

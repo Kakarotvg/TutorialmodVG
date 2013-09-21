@@ -1,17 +1,21 @@
 package kakarotvg.common.tutorial;
 
 import kakarotvg.common.tutorial.gui.TutorialGuiHandler;
-import kakarotvg.common.tutorial.handlers.ArmorHandler;
-import kakarotvg.common.tutorial.handlers.BlockHandler;
-import kakarotvg.common.tutorial.handlers.CreativeTabHandler;
-import kakarotvg.common.tutorial.handlers.CropHandler;
-import kakarotvg.common.tutorial.handlers.IDHandler;
-import kakarotvg.common.tutorial.handlers.ItemHandler;
-import kakarotvg.common.tutorial.handlers.LiquidHandler;
-import kakarotvg.common.tutorial.handlers.RecipeHandler;
-import kakarotvg.common.tutorial.handlers.TileEntityHandler;
-import kakarotvg.common.tutorial.handlers.ToolHandler;
-import kakarotvg.common.tutorial.handlers.TutorialEventHandler;
+import kakarotvg.common.tutorial.handlers.Ids.ArmorIDs;
+import kakarotvg.common.tutorial.handlers.Ids.BlockIDs;
+import kakarotvg.common.tutorial.handlers.Ids.ItemIDs;
+import kakarotvg.common.tutorial.handlers.Ids.ToolIDs;
+import kakarotvg.common.tutorial.handlers.armor.ArmorHandler;
+import kakarotvg.common.tutorial.handlers.blocks.BlockHandler;
+import kakarotvg.common.tutorial.handlers.crafting.RecipeHandler;
+import kakarotvg.common.tutorial.handlers.creativetabs.CreativeTabHandler;
+import kakarotvg.common.tutorial.handlers.crops.CropHandler;
+import kakarotvg.common.tutorial.handlers.events.TutorialEventHandler;
+import kakarotvg.common.tutorial.handlers.items.ItemHandler;
+import kakarotvg.common.tutorial.handlers.liquids.LiquidHandler;
+import kakarotvg.common.tutorial.handlers.tileentity.TileEntityHandler;
+import kakarotvg.common.tutorial.handlers.tools.ToolHandler;
+import kakarotvg.common.tutorial.info.TutorialModInfo;
 import kakarotvg.common.tutorial.proxys.CommonProxy;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.MinecraftForge;
@@ -41,12 +45,14 @@ public class VgTutorial {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         /*
-         * Runs the Configuration file and saves the IDs to the file (file will
-         * be named Tutorial_Mod.cfg)
+         * Runs the Configuration file and saves the IDs to the file (file will be named Tutorial_Mod.cfg)
          */
         Configuration config = new Configuration(event.getSuggestedConfigurationFile());
         config.load();
-        IDHandler.createConfigfile(config);
+        ArmorIDs.createConfigfile(config);
+        BlockIDs.configureBlockIDs(config);
+        ToolIDs.configureToolIDs(config);
+        ItemIDs.configureItemIDs(config);
         config.save();
         // everything below must be under the cofig.save otherwise minecraft
         // wont work
@@ -94,22 +100,18 @@ public class VgTutorial {
         TutorialEventHandler.registerEvents();
 
         /*
-         * calls the creative tab handler allowing our creative tab to have its
-         * own custom name
+         * calls the creative tab handler allowing our creative tab to have its own custom name
          */
         CreativeTabHandler.setNames(new LanguageRegistry());
 
         /*
-         * calls the classregistry class allowing what ever classes we need to
-         * register, to show up in the game...
+         * calls the classregistry class allowing what ever classes we need to register, to show up in the game...
          */
         ClassRegistry.classRegistry(new GameRegistry());
         NetworkRegistry.instance().registerGuiHandler(this, guihandler);
 
         /*
-         * Recipes need to be on bottom. Otherwise you may get a
-         * nullpointerexception! calls the recipehandler allowing for our
-         * crafting recipes
+         * Recipes need to be on bottom. Otherwise you may get a nullpointerexception! calls the recipehandler allowing for our crafting recipes
          */
         RecipeHandler.registerCrafting(new GameRegistry());
         RecipeHandler.registerSmelting(new GameRegistry());

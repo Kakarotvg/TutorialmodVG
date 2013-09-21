@@ -1,6 +1,6 @@
 package kakarotvg.common.tutorial.blocks;
 
-import kakarotvg.common.tutorial.Reference;
+import kakarotvg.common.tutorial.info.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;

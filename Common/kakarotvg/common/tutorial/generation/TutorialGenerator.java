@@ -2,7 +2,7 @@ package kakarotvg.common.tutorial.generation;
 
 import java.util.Random;
 
-import kakarotvg.common.tutorial.handlers.BlockHandler;
+import kakarotvg.common.tutorial.handlers.blocks.BlockHandler;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -44,8 +44,8 @@ public class TutorialGenerator implements IWorldGenerator {
      * Adds an Ore Spawn to Minecraft. Simply register all Ores to spawn with this method in your Generation method in your IWorldGeneration extending Class
      * 
      * @param block: The Block to spawn
-     * @param metadata: The blocks metadata
-     * @param target: The target block id (stone being 1)
+     * @param metadata: An Int The blocks metadata
+     * @param target: An Int The target block id (stone being 1)
      * @param world: The World to spawn in
      * @param random: A Random object for retrieving random positions within the world to spawn the Block
      * @param blockXPos: An int for passing the X-Coordinate for the Generation method

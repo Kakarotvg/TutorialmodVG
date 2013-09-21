@@ -19,11 +19,11 @@
         
 		<exec executable="recompile.bat" dir="forge/mcp" resolveexecutable="true" osfamily="windows"></exec>
         
-		<exec executable="reobfuscate.bat" dir="forge/mcp" resolveexecutable="true" osfamily="windows"></exec>
+		<exec executable="reobfuscate_srg.bat" dir="forge/mcp" resolveexecutable="true" osfamily="windows"></exec>
         
 		<exec executable="recompile.sh" dir="forge/mcp" resolveexecutable="true" osfamily="unix"></exec>
         
-		<exec executable="reobfuscate.sh" dir="forge/mcp" resolveexecutable="true" osfamily="unix"></exec>
+		<exec executable="reobfuscate_srg.sh" dir="forge/mcp" resolveexecutable="true" osfamily="unix"></exec>
     
         
 		<jar destfile="releases/TutorialMod.jar">

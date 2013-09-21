@@ -1,7 +1,7 @@
 package kakarotvg.common.tutorial.render.mobs;
 
-import kakarotvg.common.tutorial.Reference;
 import kakarotvg.common.tutorial.entity.mobs.EntityTutorialAnimal;
+import kakarotvg.common.tutorial.info.Reference;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
@@ -15,12 +15,12 @@ public class RenderTutorialAnimal extends RenderLiving {
         super(par1ModelBase, par2);
     }
 
-    protected ResourceLocation func_110832_a(EntityTutorialAnimal entity) {
+    protected ResourceLocation getTutanimalTexture(EntityTutorialAnimal entity) {
         return resourceloc;
     }
 
-    protected ResourceLocation func_110775_a(Entity entity) {
-        return this.func_110832_a((EntityTutorialAnimal) entity);
+    @Override
+    protected ResourceLocation getEntityTexture(Entity entity) {
+        return this.getTutanimalTexture((EntityTutorialAnimal) entity);
     }
-
 }
